@@ -81,7 +81,7 @@ const FinalCTA = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="pt-16 mt-8 mb-32"
+          className="pt-16 mt-8 mb-[5cm]"
         >
           <motion.div
             className="relative max-w-4xl mx-auto"
@@ -95,11 +95,10 @@ const FinalCTA = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
             <p className="text-2xl md:text-4xl font-light italic leading-relaxed">
-              "In F1, milliseconds decide victories.{" "}
+              In F1, milliseconds decide victories.{" "}
               <span className="text-foreground font-bold text-glow block mt-2 text-3xl md:text-5xl">
                 ENIGMA decides what survives.
               </span>
-              "
             </p>
 
             {/* Decorative elements */}
