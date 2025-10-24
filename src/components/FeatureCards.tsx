@@ -53,20 +53,33 @@ const FeatureCards = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent" />
       
       <div className="relative max-w-7xl mx-auto">
-        <motion.div
+        <motion.h2
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+          }}
+          viewport={{ once: true }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.4
+          }}
+          className="text-5xl md:text-6xl font-black text-center mb-6 tracking-tight water-rise"
+        >
+          The Solution
+        </motion.h2>
+        
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-xl text-muted-foreground max-w-2xl mx-auto text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
-            The Solution
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            AI-powered damage analysis that predicts failures before they happen
-          </p>
-        </motion.div>
+          AI-powered damage analysis that predicts failures before they happen
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {

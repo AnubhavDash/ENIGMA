@@ -54,13 +54,6 @@ const Acknowledgments = () => {
               Engineered in <span className="text-foreground font-semibold">India</span> for engineers who demand precision in decision-making. 
               Where innovation meets execution.
             </p>
-            <div className="inline-flex items-center gap-3 glass-card px-6 py-3 rounded-full">
-              <span className="text-2xl">🦁</span>
-              <span className="font-bold text-lg">Swadeshi Engineering</span>
-            </div>
-            <p className="text-sm text-muted-foreground italic">
-              Made with precision, passion, and pride
-            </p>
           </motion.div>
         </div>
 

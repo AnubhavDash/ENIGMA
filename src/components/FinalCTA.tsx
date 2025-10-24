@@ -45,40 +45,24 @@ const FinalCTA = () => {
           </p>
         </motion.div>
 
-        {/* Made in India Badge */}
+
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex items-center justify-center gap-4 text-muted-foreground"
-        >
-          <span className="text-4xl">🦁</span>
-          <span className="text-lg tracking-wide">Made with precision in India</span>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
+          className="flex items-center justify-center pt-8"
         >
           <Button 
             size="lg" 
             className="group glass-card-hover text-lg px-8 py-6 rounded-xl font-semibold bg-primary text-primary-foreground hover:shadow-2xl hover:shadow-primary/20"
+            asChild
           >
-            Experience ENIGMA
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="text-lg px-8 py-6 rounded-xl font-semibold glass-card glass-card-hover"
-          >
-            View Demo
+            <a href="https://github.com/yourusername/enigma" target="_blank" rel="noopener noreferrer">
+              Experience ENIGMA
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </Button>
         </motion.div>
 

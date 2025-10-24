@@ -60,9 +60,13 @@ const AnimatedNumber = ({ target, prefix = "", suffix = "" }: { target: string; 
     return () => clearInterval(timer);
   }, [isInView, targetNum]);
 
+  const formattedNumber = target.includes('.') 
+    ? count.toFixed(1)
+    : count.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
   return (
     <div ref={ref} className="text-6xl md:text-8xl font-black tracking-tighter number-glow">
-      {prefix}{count.toFixed(target.includes('.') ? 1 : 0)}{suffix}
+      {prefix}{formattedNumber}{suffix}
     </div>
   );
 };
@@ -76,11 +80,19 @@ const StatsSection = () => {
 
       <div className="relative max-w-7xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+          }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-black text-center mb-24 tracking-tight"
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.4
+          }}
+          className="text-5xl md:text-6xl font-black text-center mb-24 tracking-tight water-rise"
         >
           The Numbers Don't Lie
         </motion.h2>
@@ -89,12 +101,47 @@ const StatsSection = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 80, scale: 0.9 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="glass-card glass-card-hover rounded-2xl p-8 md:p-12 text-center"
+              transition={{ 
+                duration: 0.8,
+                delay: index * 0.15,
+                type: "spring",
+                bounce: 0.35
+              }}
+              className="glass-card glass-card-hover rounded-2xl p-8 md:p-12 text-center water-rise relative overflow-hidden"
             >
+              {/* Water droplet trails */}
+              <div className="absolute inset-0 pointer-events-none">
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-0.5 bg-gradient-to-b from-white/60 via-white/30 to-transparent"
+                    style={{
+                      left: `${20 + i * 20}%`,
+                      height: '40px',
+                      top: '-40px'
+                    }}
+                    initial={{ y: 0, opacity: 0 }}
+                    whileInView={{ 
+                      y: 100,
+                      opacity: [0, 1, 0.5, 0]
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 1.2,
+                      delay: index * 0.15 + 0.5 + i * 0.1,
+                      ease: "easeIn"
+                    }}
+                  />
+                ))}
+              </div>
+              
               <AnimatedNumber 
                 target={stat.value} 
                 prefix={stat.prefix}
