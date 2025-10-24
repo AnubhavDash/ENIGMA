@@ -54,29 +54,67 @@ const FinalCTA = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex items-center justify-center pt-8"
         >
-          <Button 
-            size="lg" 
-            className="group glass-card-hover text-lg px-8 py-6 rounded-xl font-semibold bg-primary text-primary-foreground hover:shadow-2xl hover:shadow-primary/20"
-            asChild
+          <motion.a
+            href="https://github.com/AnubhavDash/enigma-f1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center px-12 py-5 text-lg font-semibold text-foreground rounded-xl border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <a href="https://github.com/yourusername/enigma" target="_blank" rel="noopener noreferrer">
-              Experience ENIGMA
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </Button>
+            <span className="relative z-10">Experience ENIGMA</span>
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+            
+            {/* White glow effect on hover */}
+            <motion.div
+              className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                boxShadow: "0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1)"
+              }}
+            />
+          </motion.a>
         </motion.div>
 
-        {/* Final powerful statement */}
+        {/* Final powerful statement - Eye-catching */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 1 }}
-          className="pt-16 border-t border-border/50 mt-16"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="pt-24 mt-16"
         >
-          <p className="text-xl md:text-2xl text-muted-foreground font-light italic max-w-3xl mx-auto">
-            "In F1, milliseconds decide victories. <span className="text-primary font-semibold text-glow">ENIGMA decides what survives.</span>"
-          </p>
+          <motion.div
+            className="relative max-w-4xl mx-auto"
+            animate={{ 
+              textShadow: [
+                "0 0 20px rgba(255, 255, 255, 0.3)",
+                "0 0 40px rgba(255, 255, 255, 0.5)",
+                "0 0 20px rgba(255, 255, 255, 0.3)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <p className="text-2xl md:text-4xl font-light italic leading-relaxed">
+              "In F1, milliseconds decide victories.{" "}
+              <motion.span 
+                className="text-foreground font-bold text-glow block mt-2 text-3xl md:text-5xl"
+                animate={{ 
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                ENIGMA decides what survives.
+              </motion.span>
+              "
+            </p>
+
+            {/* Decorative elements */}
+            <motion.div
+              className="absolute -top-8 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-white to-transparent"
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </motion.div>
         </motion.div>
       </div>
 

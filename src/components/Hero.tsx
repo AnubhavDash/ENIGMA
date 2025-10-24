@@ -35,15 +35,6 @@ const Hero = () => {
           Decoding Damage. Predicting Failure.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-20 flex flex-col items-center gap-2"
-        >
-          <p className="text-sm uppercase tracking-widest text-muted-foreground">Scroll to decode</p>
-          <ChevronDown className="w-6 h-6 animate-pulse-glow" />
-        </motion.div>
       </div>
     </section>
   );
