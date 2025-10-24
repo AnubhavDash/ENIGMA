@@ -81,7 +81,7 @@ const FinalCTA = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="pt-16 mt-8 mb-[5cm]"
+          className="pt-16 mt-8 mb-16"
         >
           <motion.div
             className="relative max-w-4xl mx-auto"
